@@ -16,7 +16,7 @@ A single script to set up a fresh Mac for web and mobile development with Node, 
 ## Prerequisites
 
 1. **macOS** on Apple Silicon (M-series) or Intel
-2. **Xcode** — install from the App Store, then accept the license:
+2. **Xcode** — install from the App Store for Swift/SwiftUI development, then accept the license:
    ```bash
    sudo xcodebuild -license accept
    ```
@@ -37,7 +37,6 @@ The script is **idempotent** — it checks for existing installations and skips 
 ## After Setup
 
 - Open a new terminal or run `source ~/.zshrc` to load all changes
-- Install **Xcode** from the App Store for Swift/SwiftUI development
 - Add your SSH public key to GitHub: `cat ~/.ssh/id_ed25519.pub`
 
 ## Customization

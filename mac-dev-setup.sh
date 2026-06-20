@@ -232,5 +232,4 @@ echo ""
 echo "Services:"
 brew services list
 echo ""
-echo "Reminder: Install Xcode from the App Store for Swift/SwiftUI development."
 echo "Run 'source ~/.zshrc' or open a new terminal to pick up all changes."
