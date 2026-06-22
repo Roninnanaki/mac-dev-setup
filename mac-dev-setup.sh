@@ -219,6 +219,32 @@ else
   fi
 fi
 
+# --- Claude AI Tools ---
+echo "Checking Claude AI tools..."
+
+# Claude Desktop
+brew_install_cask claude "Claude.app"
+
+# Claude Code CLI
+if npm list -g @anthropic-ai/claude-code &>/dev/null; then
+  echo "  Claude Code CLI already installed, skipping."
+else
+  echo "  Installing Claude Code CLI..."
+  npm install -g @anthropic-ai/claude-code
+  echo "  Claude Code CLI installed."
+fi
+
+# Claude Code VS Code Extension
+if code --list-extensions 2>/dev/null | grep -qi "anthropic.claude-code"; then
+  echo "  Claude Code VS Code extension already installed, skipping."
+else
+  echo "  Installing Claude Code VS Code extension..."
+  code --install-extension anthropic.claude-code
+  echo "  Claude Code VS Code extension installed."
+fi
+echo "Claude AI tools ready."
+echo ""
+
 echo ""
 echo "========================================="
 echo "  Setup Complete!"

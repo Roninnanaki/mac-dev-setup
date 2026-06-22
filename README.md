@@ -9,6 +9,7 @@ A single script to set up a fresh Mac for web and mobile development with Node, 
 - **Ruby** (latest stable) via [rbenv](https://github.com/rbenv/rbenv) — with Rails and Bundler
 - **PostgreSQL 17** and **Redis** — started as background services
 - **VS Code** — editor (skipped if already installed)
+- **Claude AI tools** — Claude Desktop app, Claude Code CLI, and Claude Code VS Code extension
 - **CLI tools** — git, gh, ripgrep, fd, fzf, jq
 - **Git + SSH** — global config and ED25519 key generation
 - **GitHub CLI auth** — optional login prompt
