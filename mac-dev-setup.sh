@@ -245,6 +245,36 @@ fi
 echo "Claude AI tools ready."
 echo ""
 
+# --- Figma ---
+echo "Checking Figma tools..."
+
+# Figma Desktop
+brew_install_cask figma "Figma.app"
+
+# Figma VS Code Extension
+if code --list-extensions 2>/dev/null | grep -qi "figma.figma-vscode-extension"; then
+  echo "  Figma VS Code extension already installed, skipping."
+else
+  echo "  Installing Figma VS Code extension..."
+  code --install-extension figma.figma-vscode-extension
+  echo "  Figma VS Code extension installed."
+fi
+
+# Figma MCP Server (desktop version) for Claude Code
+if command -v claude &>/dev/null; then
+  if claude mcp list 2>/dev/null | grep -q "figma-desktop"; then
+    echo "  Figma MCP server already configured, skipping."
+  else
+    echo "  Adding Figma desktop MCP server to Claude Code..."
+    claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp
+    echo "  Figma desktop MCP server added."
+  fi
+else
+  echo "  Claude Code CLI not found, skipping Figma MCP setup."
+fi
+echo "Figma tools ready."
+echo ""
+
 echo ""
 echo "========================================="
 echo "  Setup Complete!"
@@ -257,5 +287,10 @@ echo "  Yarn:  $(yarn -v 2>/dev/null || echo 'restart shell to use')"
 echo ""
 echo "Services:"
 brew services list
+echo ""
+echo "Figma MCP note:"
+echo "  Desktop MCP: Open Figma Desktop, enable Dev Mode, and toggle on the MCP server."
+echo "  Remote MCP (recommended): Run 'claude' and type /plugin to install the Figma plugin"
+echo "  and authenticate via your browser for the full remote MCP experience."
 echo ""
 echo "Run 'source ~/.zshrc' or open a new terminal to pick up all changes."

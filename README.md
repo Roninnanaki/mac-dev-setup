@@ -10,6 +10,7 @@ A single script to set up a fresh Mac for web and mobile development with Node, 
 - **PostgreSQL 17** and **Redis** — started as background services
 - **VS Code** — editor (skipped if already installed)
 - **Claude AI tools** — Claude Desktop app, Claude Code CLI, and Claude Code VS Code extension
+- **Figma** — Figma Desktop app, Figma VS Code extension, and Figma MCP server for Claude Code
 - **CLI tools** — git, gh, ripgrep, fd, fzf, jq
 - **Git + SSH** — global config and ED25519 key generation
 - **GitHub CLI auth** — optional login prompt
@@ -39,6 +40,7 @@ The script is **idempotent** — it checks for existing installations and skips 
 
 - Open a new terminal or run `source ~/.zshrc` to load all changes
 - Add your SSH public key to GitHub: `cat ~/.ssh/id_ed25519.pub`
+- **Figma MCP setup** — the script configures the desktop MCP server, but for the best experience use the remote server: run `claude` and type `/plugin` to install and authenticate the Figma plugin
 
 ## Customization
 
